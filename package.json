@@ -1,0 +1,39 @@
+{
+  "name": "polate",
+  "version": "1.0.0",
+  "description": "Small function for interpolating variables into javascript strings.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run -s prep:test; ./node_modules/.bin/mocha --opts mocha.opts test/index.ts",
+    "build": "tsc --project src",
+    "prep:test": "npm run build; rm -R ./node_modules/polate; mkdir -p node_modules/polate; cp index.js node_modules/polate; cp package.json node_modules/polate/package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quenktechnologies/polate.git"
+  },
+  "keywords": [
+    "string",
+    "fmt",
+    "interpolation",
+    "format"
+  ],
+  "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/quenktechnologies/polate/issues"
+  },
+  "homepage": "https://github.com/quenktechnologies/polate#readme",
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "browserify": "^14.1.0",
+    "fluture": "^5.0.0",
+    "mocha": "^3.2.0",
+    "must": "^0.13.4",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.3.4"
+  },
+  "dependencies": {
+    "property-seek": "^3.0.8"
+  }
+}
