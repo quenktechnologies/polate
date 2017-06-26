@@ -4,13 +4,13 @@ Polate
 
 "Small function for interpolating variables into javascript strings.",
 
-##Installation
+## Installation
 
 ```sh 
 npm install --save polate
 ```
 
-##Usage
+## Usage
 
 ```js
 
