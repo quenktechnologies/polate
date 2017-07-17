@@ -9,8 +9,7 @@ var defaults = {
     leaveMissing: true
 };
 var maybe = function (v, k, opts) {
-    return console.error('maybe ', k, v) ||
-        (v != null) ? v
+    return (v != null) ? v
         : opts.leaveMissing ?
             "" + opts.start + k + opts.end
             : v;
