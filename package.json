@@ -1,6 +1,6 @@
 {
   "name": "@quenk/polate",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Small function for interpolating variables into javascript strings.",
   "main": "index.js",
   "scripts": {
