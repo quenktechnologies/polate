@@ -4,7 +4,15 @@ var property = require("property-seek");
 ;
 var defaults = {
     start: '\{',
-    end: '\}'
+    end: '\}',
+    regex: '([\\w\.\-]+)',
+    leaveMissing: true
+};
+var maybe = function (v, k, opts) {
+    return (v != null) ? v
+        : opts.leaveMissing ?
+            "" + opts.start + k + opts.end
+            : v;
 };
 /**
  * polate
@@ -12,7 +20,7 @@ var defaults = {
 exports.polate = function (str, data, options) {
     if (options === void 0) { options = defaults; }
     return str.replace(new RegExp(options.start + "([\\w.-]+)" + options.end, 'g'), function (_, k) {
-        return property(k, data);
+        return maybe(property(k, data), k, options);
     });
 };
 exports.default = exports.polate;

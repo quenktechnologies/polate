@@ -1,6 +1,8 @@
 export interface Options {
     start: string;
     end: string;
+    regex: string;
+    leaveMissing: boolean;
 }
 /**
  * polate
