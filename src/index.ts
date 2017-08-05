@@ -1,4 +1,4 @@
-import * as property from 'property-seek';
+import property from 'property-seek';
 
 export interface Options {
     start?: string,
