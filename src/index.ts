@@ -1,10 +1,10 @@
 import * as property from 'property-seek';
 
 export interface Options {
-    start: string,
-    end: string,
-    regex: string,
-    leaveMissing: boolean;
+    start?: string,
+    end?: string,
+    regex?: string,
+    leaveMissing?: boolean;
 };
 
 const defaults: Options = {
@@ -25,8 +25,10 @@ const maybe = (v: any, k: string, opts: Options) =>
 /**
  * polate 
  */
-export const polate = (str: string, data: object, options: Options = defaults) =>
-    str.replace(new RegExp(`${options.start}${options.regex}${options.end}`, 'g'), (_, k) =>
+export const polate = (str: string, data: object, opts: Options = {}) => {
+    let options = Object.assign({}, opts, defaults);
+    return str.replace(new RegExp(`${options.start}${options.regex}${options.end}`, 'g'), (_, k) =>
         maybe(property(k, data), k, options));
+}
 
 export default polate;

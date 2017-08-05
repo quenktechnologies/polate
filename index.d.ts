@@ -1,11 +1,11 @@
 export interface Options {
-    start: string;
-    end: string;
-    regex: string;
-    leaveMissing: boolean;
+    start?: string;
+    end?: string;
+    regex?: string;
+    leaveMissing?: boolean;
 }
 /**
  * polate
  */
-export declare const polate: (str: string, data: object, options?: Options) => string;
+export declare const polate: (str: string, data: object, opts?: Options) => string;
 export default polate;
