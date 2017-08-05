@@ -26,7 +26,7 @@ const maybe = (v: any, k: string, opts: Options) =>
  * polate 
  */
 export const polate = (str: string, data: object, opts: Options = {}) => {
-    let options = Object.assign({}, opts, defaults);
+    let options = Object.assign({}, defaults, opts);
     return str.replace(new RegExp(`${options.start}${options.regex}${options.end}`, 'g'), (_, k) =>
         maybe(property(k, data), k, options));
 }

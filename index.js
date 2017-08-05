@@ -19,7 +19,7 @@ var maybe = function (v, k, opts) {
  */
 exports.polate = function (str, data, opts) {
     if (opts === void 0) { opts = {}; }
-    var options = Object.assign({}, opts, defaults);
+    var options = Object.assign({}, defaults, opts);
     return str.replace(new RegExp("" + options.start + options.regex + options.end, 'g'), function (_, k) {
         return maybe(property_seek_1.default(k, data), k, options);
     });
