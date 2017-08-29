@@ -11,7 +11,7 @@ const defaults: Options = {
 
     start: '\{',
     end: '\}',
-    regex: '([\\w\.\-]+)',
+    regex: '([\\w\$\.\-]+)',
     leaveMissing: true
 
 };

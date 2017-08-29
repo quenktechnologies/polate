@@ -5,7 +5,7 @@ var property_seek_1 = require("property-seek");
 var defaults = {
     start: '\{',
     end: '\}',
-    regex: '([\\w\.\-]+)',
+    regex: '([\\w\$\.\-]+)',
     leaveMissing: true
 };
 var maybe = function (v, k, opts) {
