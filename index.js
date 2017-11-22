@@ -6,13 +6,16 @@ var defaults = {
     start: '\{',
     end: '\}',
     regex: '([\\w\$\.\-]+)',
-    leaveMissing: true
+    leaveMissing: true,
+    applyFunctions: false
 };
 var maybe = function (v, k, opts) {
-    return (v != null) ? v
-        : opts.leaveMissing ?
-            "" + opts.start + k + opts.end
-            : v;
+    return (typeof v === 'function') ?
+        opts.applyFunctions ?
+            v(k) : v : (v != null) ?
+        v : opts.leaveMissing ?
+        "" + opts.start + k + opts.end :
+        v;
 };
 /**
  * polate

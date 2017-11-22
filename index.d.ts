@@ -3,6 +3,7 @@ export interface Options {
     end?: string;
     regex?: string;
     leaveMissing?: boolean;
+    applyFunctions?: boolean;
 }
 /**
  * polate

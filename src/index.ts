@@ -4,7 +4,8 @@ export interface Options {
     start?: string,
     end?: string,
     regex?: string,
-    leaveMissing?: boolean;
+    leaveMissing?: boolean,
+    applyFunctions?: boolean
 };
 
 const defaults: Options = {
@@ -12,15 +13,18 @@ const defaults: Options = {
     start: '\{',
     end: '\}',
     regex: '([\\w\$\.\-]+)',
-    leaveMissing: true
+    leaveMissing: true,
+    applyFunctions: false
 
 };
 
 const maybe = (v: any, k: string, opts: Options) =>
-    (v != null) ? v
-        : opts.leaveMissing ?
-            `${opts.start}${k}${opts.end}`
-            : v
+    (typeof v === 'function') ?
+        opts.applyFunctions ?
+            v(k) : v : (v != null) ?
+            v : opts.leaveMissing ?
+                `${opts.start}${k}${opts.end}` :
+                v;
 
 /**
  * polate 

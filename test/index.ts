@@ -30,6 +30,13 @@ describe('polate', function() {
 
     });
 
+    it('is able to apply functions', function() {
+
+      must(polate(`1 + 1 is {result}.`, {result: ()=> 1 + 1}, {applyFunctions: true}))
+      .be(`1 + 1 is 2.`);
+      
+    });
+
 
 });
 
